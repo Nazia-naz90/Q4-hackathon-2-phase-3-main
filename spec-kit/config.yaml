@@ -1,0 +1,27 @@
+# SpecKit Configuration for Todo Application
+project:
+  name: "Todo Application"
+  version: "1.0.0"
+  description: "A modern todo application with authentication"
+  type: "fullstack"
+
+directories:
+  frontend: "frontend"
+  backend: "backend"
+  specs: "specs"
+  history: "history"
+
+features:
+  - "authentication"
+  - "task-management"
+  - "database"
+  - "api"
+
+workflow:
+  stages:
+    - "spec"
+    - "plan"
+    - "tasks"
+    - "implementation"
+    - "testing"
+    - "deployment"

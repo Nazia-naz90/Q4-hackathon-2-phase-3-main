@@ -1,0 +1,25 @@
+AI Todo Assistant Fix Summary
+=============================
+
+PROBLEM:
+- When users asked "show me my tasks", the AI was incorrectly adding this query as a new task
+- This created a recursive issue where the query appeared in the task list as a task
+- Result: "5. Show me my tasks - Status: pending, Priority: high, Due: None"
+
+SOLUTION IMPLEMENTED:
+- Enhanced the process_message function in mcp-server/test_agent_chat.py
+- Added dual-layer protection against query phrases being treated as task titles
+- Improved detection logic with keyword matching and direct string matching
+- Updated system prompt to emphasize the prohibition against creating query-like tasks
+
+KEY CHANGES:
+1. Added flexible matching for view requests using keywords
+2. Created prohibited titles list to prevent common query phrases from becoming tasks
+3. Implemented early detection to route view requests to get_tasks function
+4. Strengthened system prompt with clearer instructions
+
+RESULT:
+- "show me my tasks" now displays the actual task list instead of creating a new task
+- Regular task creation still works normally for legitimate tasks
+- Eliminated the recursive problem where queries were added as tasks
+- Maintained all existing functionality while fixing the bug

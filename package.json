@@ -1,0 +1,18 @@
+{
+  "name": "todo-monorepo",
+  "version": "1.0.0",
+  "description": "Todo Application Monorepo",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "build": "cd frontend && npm run build",
+    "start": "concurrently \"cd backend && uvicorn main:app --host 0.0.0.0 --port 8000\" \"cd frontend && npm start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "frontend"
+  ]
+}

@@ -1,0 +1,2 @@
+# No external dependencies required for this basic CLI application
+# All required functionality is provided by Python standard library

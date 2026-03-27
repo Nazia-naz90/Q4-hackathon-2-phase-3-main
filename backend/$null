@@ -1,0 +1,7 @@
+Remove-Item : A positional parameter cannot be found that accepts argument '.venv\Lib\site-packages\passlib*'.
+At line:1 char:1
++ Remove-Item -Recurse -Force .venv\Lib\site-packages\bcrypt* .venv\Lib ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+ 

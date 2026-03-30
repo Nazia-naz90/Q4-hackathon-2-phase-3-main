@@ -1,5 +1,11 @@
 # Todo Application - Phase 2
 
+### 🌐 Live Deployment
+- **Frontend URL:** [http://92.4.75.82:3000](http://92.4.75.82:3000)
+- **Backend API Docs:** [http://92.4.75.82:8000/docs](http://92.4.75.82:8000/docs)
+
+> **Deployment Note:** This project is successfully deployed on **Oracle Cloud (Always Free Tier)**. The backend and frontend are running as persistent background processes, connected to a **Neon Serverless PostgreSQL** database.
+
 This is the Phase 2 implementation of the Todo Application with enhanced features including priority levels, due dates, and tags. The application includes both a CLI version and a full-stack web application with authentication.
 
 ## New Features
@@ -26,8 +32,9 @@ This is the Phase 2 implementation of the Todo Application with enhanced feature
 
 ## Tech Stack
 
+- **Cloud Platform**: Oracle Cloud Infrastructure (OCI)
 - **Frontend**: Next.js 16+, TypeScript, Tailwind CSS
-- **Backend**: Python 3.13+, FastAPI
+- **Backend**: Python 3.13+, FastAPI (Uvicorn)
 - **Database**: PostgreSQL (Neon Serverless) with SQLModel
 - **Authentication**: Better Auth with JWT
 - **Package Management**: uv for Python, npm for frontend
@@ -63,10 +70,10 @@ This is the Phase 2 implementation of the Todo Application with enhanced feature
 - `JWT_SECRET` - Secret for JWT token signing
 
 ### Frontend (.env.local)
-- `NEXT_PUBLIC_API_BASE_URL` - Backend API URL
+- `NEXT_PUBLIC_API_BASE_URL` - http://92.4.75.82:8000
 - `NEXT_PUBLIC_JWT_SECRET` - JWT secret (must match backend)
 
-## Running the Application
+## Running the Application (Local Development)
 
 ### Backend
 ```bash
@@ -76,37 +83,27 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -r requirements.txt
 alembic upgrade head  # Run database migrations
 uvicorn app.main:app --reload
-```
-
-### Frontend
-```bash
+Frontend
+Bash
 cd frontend
 npm install
 npm run dev
-```
-
-### CLI Application (Phase 1)
-```bash
+CLI Application (Phase 1)
+Bash
 cd .
 uv venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 uv pip install -e .
 python main.py
-```
-
-## Database Migrations
-
+Database Migrations
 To run migrations:
-```bash
+
+Bash
 cd backend
 alembic upgrade head
-```
-
 To create a new migration:
-```bash
+
+Bash
 alembic revision --autogenerate -m "Description of changes"
-```
-
-## Development Notes
-
+Development Notes
 This project represents Phase 2 of the Todo Application development, evolving from a simple CLI application to a full-stack web application with authentication and advanced features. The CLI version is maintained for backward compatibility and development purposes.
